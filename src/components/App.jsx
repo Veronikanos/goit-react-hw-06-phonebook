@@ -13,9 +13,9 @@ export const App = () => {
   // );
   // const [filter, setFilter] = useState('');
 
-  const dispatch = useDispatch();
-  const contacts = useSelector(state => state.phone);
-  console.log(contacts);
+  // const dispatch = useDispatch();
+  // const contacts = useSelector(state => state.phone);
+  // console.log(contacts);
 
   // useEffect(() => {
   //   localStorage.setItem('contacts', JSON.stringify(contacts));
@@ -24,14 +24,6 @@ export const App = () => {
   // const changeFilter = e => {
   //   setFilter(e.currentTarget.value);
   // };
-
-  const handleAddContact = newContact => {
-    // contacts.find(item => item.name === newContact.name)
-    //   ? alert(`${newContact.name} is already in contacts`)
-    //   :  setContacts([newContact, ...contacts]);
-    dispatch(addContact(newContact));
-    console.log(contacts);
-  };
 
   // const deleteContact = id => {
   //   setContacts(contacts.filter(contact => contact.id !== id));
@@ -47,23 +39,23 @@ export const App = () => {
     <section className={styles.phonebook}>
       <div className={styles.container}>
         <h1>Phonebook</h1>
-        <ContactForm handleAddContact={handleAddContact} />
+        <ContactForm />
       </div>
-      {/* <div className={styles.container}>
+      <div className={styles.container}>
         <h2>Contacts</h2>
-        {!contacts.length ? (
+        {/* {!contacts.length ? (
           <h3>Your phonebook is empty. Add your first contact</h3>
-        ) : (
-          <>
-            <h3>Your phonebook has {contacts.length} contacts</h3>
-            <Filter filter={filter} onChange={changeFilter} />
-            <ContactList
-              contacts={filteredContacts}
-              // onDelete={deleteContact}
-            />
-          </>
-        )}
-      </div> */}
+        ) : ( */}
+        <>
+          {/* <h3>Your phonebook has {contacts.length} contacts</h3> */}
+          {/* <Filter filter={filter} onChange={changeFilter} /> */}
+          <ContactList
+          // contacts={filteredContacts}
+          // onDelete={deleteContact}
+          />
+        </>
+        {/* )} */}
+      </div>
     </section>
   );
 };

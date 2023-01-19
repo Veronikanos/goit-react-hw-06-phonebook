@@ -1,7 +1,10 @@
 import styles from './ContactList.module.css';
-import PropTypes from 'prop-types';
+import { useDispatch, useSelector } from 'react-redux';
+import { deleteContact } from 'redux/contactSlice';
 
-export const ContactList = ({ contacts, onDelete }) => {
+export const ContactList = () => {
+  const dispatch = useDispatch();
+  const contacts = useSelector(state => state.contacts);
   return (
     <>
       <ul>
@@ -10,7 +13,10 @@ export const ContactList = ({ contacts, onDelete }) => {
             <p className={styles.user}>
               <b>{item.name}</b> {item.number}
             </p>
-            <button type="submit" onClick={() => onDelete(item.id)}>
+            <button
+              type="button"
+              onClick={() => dispatch(deleteContact(item.id))}
+            >
               Delete
             </button>
           </li>
@@ -18,15 +24,4 @@ export const ContactList = ({ contacts, onDelete }) => {
       </ul>
     </>
   );
-};
-
-ContactList.propTypes = {
-  contacts: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-      number: PropTypes.string.isRequired,
-    })
-  ),
-  onDelete: PropTypes.func.isRequired,
 };
