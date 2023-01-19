@@ -4,17 +4,14 @@ const contactSlice = createSlice({
   name: 'phone',
   initialState: [],
   reducers: {
-    addContact: (state, action) => [action.payload, ...state],
-    deleteContact: (state, action) => {
-      state.contacts = state.contacts.filter(
-        item => item.id !== action.payload
-        //TODO: need to check this func
-      );
+    addContact(state, action) {
+      state.push(action.payload);
+    },
+    deleteContact(state, action) {
+      return state.contacts.filter(item => item.id !== action.payload);
     },
   },
 });
 
-const { actions, reducer } = contactSlice;
-
-export default reducer;
-export const { addContact, deleteContact } = actions;
+export const contactReducer = contactSlice.reducer;
+export const { addContact, deleteContact } = contactSlice.actions;
