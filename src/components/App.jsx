@@ -48,11 +48,11 @@ export const App = () => {
         ) : ( */}
         <>
           {/* <h3>Your phonebook has {contacts.length} contacts</h3> */}
-          {/* <Filter filter={filter} onChange={changeFilter} /> */}
-          {/* <ContactList
+          {/* <Filter/> */}
+          <ContactList
           // contacts={filteredContacts}
           // onDelete={deleteContact}
-          /> */}
+          />
         </>
         {/* )} */}
       </div>
