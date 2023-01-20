@@ -4,8 +4,11 @@ import { deleteContact } from 'redux/contactSlice';
 
 export const ContactList = () => {
   const dispatch = useDispatch();
-  const contacts = useSelector(state => state.contacts.items);
-  console.log(contacts);
+  const contacts = useSelector(state => {
+    return state.contacts.items.filter(item =>
+      item.name.toLowerCase().trim().includes(state.filter.toLowerCase().trim())
+    );
+  });
   return (
     <>
       <ul>
