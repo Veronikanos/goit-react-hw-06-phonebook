@@ -7,7 +7,6 @@ export const Filter = () => {
   const filter = useSelector(state => state.filter);
 
   const showFilteredContacts = e => {
-		
     dispatch(filterContacts(e.target.value));
   };
 
