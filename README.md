@@ -18,9 +18,6 @@ Coded by Tlostiuk Veronika.
 
 ## PHONEBOOK
 
-The app display the number of reviews collected for each category. The app
-doesn't save review statistics between different sessions (page refresh).
-
 #### App's initial view:
 
 ![Screenshot_15](https://user-images.githubusercontent.com/49239848/209429287-c99f6901-f5bc-4351-9c5e-d961d12d3c84.png)
